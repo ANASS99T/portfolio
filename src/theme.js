@@ -1,24 +1,25 @@
 import { createTheme } from '@mui/material/styles';
-import { red } from '@mui/material/colors';
+
 // Create a theme instance.
-const theme = createTheme({
+
+
+const getDesignTokens = (mode) => ({
     palette: {
-        primary: {
-            main: '#556cd6',
-            test :"#ffffff"
-        },
-        secondary: {
-            main: '#19857b',
-        },
-        error: {
-            main: red.A400,
-        },
-        background: {
-            default: '#181818',
-        }
+        mode,
+        ...(mode === 'dark' && {
+            background: {
+                default: '#181818',
+                paper: '#181818',
+            },
+        }),
     },
 });
 
-export default theme;
+
+export const defaultTheme = createTheme(getDesignTokens('dark'));
+
+
+// export default myTheme;
+export default getDesignTokens;
 
 
