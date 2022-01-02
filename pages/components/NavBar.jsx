@@ -3,7 +3,7 @@
 function NavBar() {
     return (
         <div>
-                  test  
+                    
         </div>
     )
 }

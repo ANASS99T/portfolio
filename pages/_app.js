@@ -14,6 +14,8 @@ import '../styles/globals.css'
 // export default MyApp
 
 import * as React from 'react';
+import Script from 'next/script'
+
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { ThemeProvider } from '@mui/material/styles';
@@ -34,6 +36,23 @@ export default function MyApp(props) {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <ThemeProvider theme={myTheme}>
+        <Script
+          src="src/particles.js"
+          strategy="afterInteractive"
+        // onLoad={() => { console.log('Particles script loaded successfully'); }}
+        />
+        <Script
+          src="src/js/app.js"
+          strategy="afterInteractive"
+        // onLoad={() => { console.log('app script loaded successfully'); }}
+        />
+        <Script
+          src="src/js/lib/stats.js"
+          strategy="afterInteractive"
+          onLoad={() => {
+            // console.log('Stats script loaded successfully');
+          }}
+        />
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <Component {...pageProps} />
